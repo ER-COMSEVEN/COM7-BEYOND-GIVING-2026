@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COM7 Upcycle for Inclusion — Beyond Giving 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Mitr:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dk:#1a3c1a;--green:#2e7d32;--green-light:#4caf50;--green-pale:#e8f5e9;
+  --cream:#faf8f3;--text:#222;--text-light:#666;
+  --font-heading:'Montserrat','Kanit',sans-serif;
+  --font-th:'Kanit',sans-serif;
+  --font-body:'Mitr',sans-serif;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:64px;background:var(--dk);border-bottom:none;
+}
+.navbar.scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.08);}
+.nav-logo img{height:36px;filter:brightness(0) invert(1);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;padding:8px 16px;border-radius:8px;transition:all 0.2s;}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+.nav-back{display:flex;align-items:center;gap:6px;color:#fff;font-weight:500;}
+@media(max-width:900px){.navbar{padding:0 20px;}.nav-links{display:none;}}
+
+/* HERO */
+.hero{
+  margin-top:64px;position:relative;
+  overflow:hidden;
+}
+.hero-banner{
+  width:100%;display:block;
+}
+
+/* SECTION */
+.section{padding:64px 48px;max-width:1100px;margin:0 auto;}
+@media(max-width:900px){.section{padding:48px 24px;}}
+.section-title{font-family:var(--font-th);font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--dk);margin-bottom:8px;}
+.section-sub{font-size:15px;color:var(--text-light);font-weight:300;margin-bottom:32px;}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:760px){.how-grid{grid-template-columns:1fr;}}
+.how-card{
+  background:#fff;border-radius:var(--radius);padding:32px 24px;text-align:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.04);position:relative;
+  transition:transform 0.3s;
+}
+.how-card:hover{transform:translateY(-4px);}
+.how-num{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  width:32px;height:32px;border-radius:50%;background:var(--dk);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-heading);font-weight:800;font-size:14px;
+}
+.how-icon{font-size:40px;margin:8px 0 14px;color:var(--green);}
+.how-title{font-family:var(--font-th);font-size:16px;font-weight:600;color:var(--dk);margin-bottom:8px;}
+.how-desc{font-size:13.5px;color:var(--text-light);font-weight:300;line-height:1.6;}
+
+/* INFO BOX */
+.info-box{
+  background:#fff;border-radius:var(--radius);padding:36px 40px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.04);
+  margin-bottom:40px;
+}
+@media(max-width:900px){.info-box{padding:28px 24px;}}
+.info-box h3{font-family:var(--font-th);font-size:20px;font-weight:700;color:var(--dk);margin-bottom:16px;}
+.info-list{list-style:none;padding:0;}
+.info-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid #f0f0f0;
+  font-size:15px;color:var(--text);font-weight:300;line-height:1.7;
+}
+.info-list li:last-child{border-bottom:none;}
+.info-list li i{color:var(--green);font-size:16px;margin-top:4px;flex-shrink:0;}
+
+/* DESTINATION */
+.dest-box{
+  background:#fff;border-radius:var(--radius);padding:36px 40px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.04);
+  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
+}
+@media(max-width:900px){.dest-box{padding:28px 24px;gap:20px;}}
+.dest-box .dest-icon{font-size:64px;flex-shrink:0;}
+.dest-box h3{font-family:var(--font-th);font-size:20px;font-weight:700;color:var(--dk);margin-bottom:4px;}
+.dest-box p{font-size:15px;color:var(--text-light);font-weight:300;line-height:1.7;}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:56px 48px;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--green-pale) 100%);
+}
+.cta-title{font-family:var(--font-th);font-size:clamp(22px,3.5vw,32px);font-weight:700;color:var(--dk);margin-bottom:6px;}
+.cta-sub{font-size:16px;color:var(--text-light);font-weight:300;margin-bottom:28px;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--dk);color:#fff;
+  padding:18px 48px;border-radius:100px;
+  font-family:var(--font-th);font-size:18px;font-weight:600;
+  text-decoration:none;transition:all 0.3s;
+  box-shadow:0 4px 16px rgba(26,60,26,0.3);
+}
+.cta-btn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,125,50,0.3);}
+.cta-note{font-size:13px;color:var(--green);font-weight:400;margin-top:16px;}
+
+/* FOOTER */
+.footer{
+  background:#fff;border-top:1px solid #e8e8e8;padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+@media(max-width:900px){.footer{padding:20px;flex-direction:column;text-align:center;}}
+.footer-logo img{height:32px;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{
+  width:34px;height:34px;border-radius:50%;background:var(--green-pale);color:var(--dk);
+  display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.2s;font-size:14px;
+}
+.footer-social a:hover{background:var(--dk);color:#fff;}
+.footer-copy{font-size:12px;color:#aaa;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.6s ease-out both;}
+.fd1{animation-delay:0.1s;}.fd2{animation-delay:0.2s;}.fd3{animation-delay:0.3s;}.fd4{animation-delay:0.4s;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
+    <a href="#howto">วิธีร่วมบริจาค</a>
+    <a href="#details">รายละเอียด</a>
+    <a href="#destination">สถานที่ส่งมอบ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-banner" src="images/activity3-banner.png" alt="COM7 Upcycle for Inclusion">
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="howto">
+  <div class="section-title fade-up">ร่วมบริจาคง่าย ๆ 3 ขั้นตอน ♻️</div>
+  <p class="section-sub fade-up fd1">เศษลวดเย็บกระดาษที่ไม่ใช้แล้ว เปลี่ยนเป็นโอกาสให้ผู้พิการ</p>
+
+  <div class="how-grid">
+    <div class="how-card fade-up fd1">
+      <div class="how-num">1</div>
+      <div class="how-icon">📎</div>
+      <div class="how-title">รวบรวมลูกแม็ก</div>
+      <div class="how-desc">เก็บเศษลวดเย็บกระดาษ (ลูกแม็ก)<br>ที่ใช้แล้วจากที่ทำงานหรือที่บ้าน</div>
+    </div>
+    <div class="how-card fade-up fd2">
+      <div class="how-num">2</div>
+      <div class="how-icon">📦</div>
+      <div class="how-title">นำส่งจุดรับบริจาค</div>
+      <div class="how-desc">นำลูกแม็กมาส่งที่จุดรวบรวม<br>ภายในระยะเวลาที่กำหนด</div>
+    </div>
+    <div class="how-card fade-up fd3">
+      <div class="how-num">3</div>
+      <div class="how-icon">🤝</div>
+      <div class="how-title">ส่งมอบสู่สังคม</div>
+      <div class="how-desc">COM7 รวบรวมและส่งมอบให้<br>สมาคมคนพิการทางการเคลื่อนไหวสากล</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section" id="details">
+  <div class="section-title fade-up">รายละเอียดกิจกรรม 📋</div>
+  <p class="section-sub fade-up fd1">ข้อมูลสำคัญที่ควรรู้ก่อนร่วมบริจาค</p>
+
+  <div class="info-box fade-up fd2">
+    <h3>รูปแบบกิจกรรม</h3>
+    <ul class="info-list">
+      <li><i class="fa-solid fa-check-circle"></i> รวบรวมเศษลวดเย็บกระดาษ (ลูกแม็ก) ที่ใช้แล้ว เพื่อนำไปส่งมอบให้กับสมาคมคนพิการทางการเคลื่อนไหวสากล</li>
+      <li><i class="fa-solid fa-check-circle"></i> เศษลวดเย็บกระดาษจะถูกนำไปแปรรูปและสร้างประโยชน์ต่อ ช่วยสนับสนุนการดำเนินงานของสมาคมฯ</li>
+      <li><i class="fa-solid fa-check-circle"></i> เป็นการนำวัสดุเหลือใช้กลับมาสร้างคุณค่าใหม่ (Upcycle) ลดขยะและช่วยเหลือสังคมไปพร้อมกัน</li>
+    </ul>
+  </div>
+
+  <div class="info-box fade-up fd3">
+    <h3>ระยะเวลารับบริจาค</h3>
+    <ul class="info-list">
+      <li><i class="fa-solid fa-calendar-days"></i> ตั้งแต่เดือน <strong>กันยายน 2569 – 31 พฤศจิกายน 2569</strong> (ระยะเวลา 3 เดือน)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DESTINATION -->
+<section class="section" id="destination">
+  <div class="section-title fade-up">สถานที่ส่งมอบ 📍</div>
+  <p class="section-sub fade-up fd1">ลูกแม็กที่รวบรวมได้จะถูกส่งมอบให้กับ</p>
+
+  <div class="dest-box fade-up fd2">
+    <div class="dest-icon">♿</div>
+    <div>
+      <h3>สมาคมคนพิการทางการเคลื่อนไหวสากล</h3>
+      <p>
+        Association of Persons with Physical Disability International<br>
+        📍 ต.คูคต อ.ลำลูกกา จ.ปทุมธานี<br>
+        องค์กรที่ดูแลและสนับสนุนคุณภาพชีวิตของผู้พิการทางการเคลื่อนไหว
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-title">ร่วมเปลี่ยนสิ่งเล็ก ๆ ให้เป็นโอกาสที่ยิ่งใหญ่ ♻️</div>
+  <div class="cta-sub">ลูกแม็กเพียงเล็กน้อยจากคุณ คือพลังสร้างสังคมที่เท่าเทียม</div>
+  <a href="#" class="cta-btn"><i class="fa-solid fa-recycle"></i> ร่วมบริจาคเลย <i class="fa-solid fa-arrow-right"></i></a>
+  <div class="cta-note">♿ ร่วมกัน Upcycle for Inclusion ตลอดเดือน ก.ย. – พ.ย. 2569</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
+  <div class="footer-social">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-line"></i></a>
+    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+  <div class="footer-copy">© 2026 COM7 Public Company Limited. All rights reserved.</div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  });
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running';});
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>{
+    el.style.animationPlayState='paused';obs.observe(el);
+  });
+</script>
+</body>
+</html>
