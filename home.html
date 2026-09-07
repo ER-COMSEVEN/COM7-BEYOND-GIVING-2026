@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COM7 BEYOND GIVING 2026 — ร่วมดูแลป่า สู่อนาคตที่ยั่งยืน</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Mitr:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dk:#1a3c1a;--dk2:#224422;--green:#2e7d32;--green-light:#4caf50;
+  --green-pale:#e8f5e9;--gray-bg:#f5f5f0;--text:#222;--text-light:#666;
+  --font-heading:'Montserrat','Kanit',sans-serif;
+  --font-body:'Mitr','Noto Sans Thai',sans-serif;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background:#fff;}
+
+/* ========== NAVBAR ========== */
+.navbar{
+  position:absolute;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:64px;
+  background:var(--dk);
+}
+.nav-logo img{height:36px;filter:brightness(0) invert(1);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{
+  color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:400;
+  padding:8px 16px;border-radius:8px;transition:all 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.1);}
+@media(max-width:900px){
+  .navbar{padding:0 20px;}
+  .nav-links{display:none;}
+}
+
+/* ========== HERO ========== */
+.hero{
+  position:relative;min-height:600px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+@media(min-width:768px){.hero{min-height:680px;}}
+.hero-video{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(26,60,26,0.7) 0%,rgba(0,0,0,0.35) 60%,rgba(0,0,0,0.2) 100%);
+}
+.hero.video-loaded .hero-overlay{
+  background:linear-gradient(135deg,rgba(26,60,26,0.65) 0%,rgba(0,0,0,0.3) 60%,rgba(0,0,0,0.15) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:120px 48px 60px;
+  max-width:1100px;margin:0 auto;
+  text-align:center;
+}
+@media(max-width:900px){.hero-content{padding:100px 24px 48px;text-align:center;}}
+
+.hero-title{
+  font-family:var(--font-heading);font-weight:300;color:#fff;
+  font-size:clamp(42px,7vw,76px);line-height:1.0;
+  letter-spacing:-1px;
+  margin-bottom:16px;
+  text-shadow:0 4px 24px rgba(0,0,0,0.3);
+}
+.hero-title .green{color:#66bb6a;}
+.hero-sub{
+  font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,0.9);font-weight:300;
+  margin-bottom:36px;line-height:1.6;
+  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Hero badges */
+.hero-badges{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;}
+.hero-badge{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.9);}
+.hero-badge .icon{
+  width:44px;height:44px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#fff;flex-shrink:0;
+}
+.hero-badge .label{font-size:13px;font-weight:300;line-height:1.4;}
+
+/* Video controls */
+.video-controls{
+  position:absolute;bottom:16px;right:16px;z-index:3;
+  display:flex;gap:8px;
+}
+.video-controls button{
+  width:36px;height:36px;border-radius:50%;border:none;
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);
+  color:#fff;font-size:14px;cursor:pointer;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.video-controls button:hover{background:rgba(255,255,255,0.3);}
+
+/* ========== ACTIVITIES SECTION ========== */
+.activities{
+  position:relative;
+  background:var(--gray-bg);
+  padding:64px 48px 80px;
+  margin-top:-40px;
+  border-radius:40px 40px 0 0;
+  z-index:4;
+}
+@media(max-width:900px){.activities{padding:48px 20px 60px;border-radius:24px 24px 0 0;}}
+
+.activities-header{max-width:1100px;margin:0 auto 48px;text-align:left;}
+.activities-header h2{
+  font-family:var(--font-heading);font-size:clamp(24px,3.5vw,36px);
+  font-weight:700;color:var(--text);margin-bottom:8px;
+}
+.activities-header p{font-size:16px;color:var(--text-light);font-weight:300;}
+
+.activities-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+@media(max-width:860px){
+  .activities-grid{grid-template-columns:1fr;max-width:440px;}
+}
+
+/* Activity Card */
+.act-card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  transition:transform 0.3s,box-shadow 0.3s;
+  display:flex;flex-direction:column;
+}
+.act-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 36px rgba(0,0,0,0.1);
+}
+
+/* Card image */
+.act-img{position:relative;height:220px;overflow:hidden;}
+.act-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.act-card:hover .act-img img{transform:scale(1.05);}
+.act-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(transparent 50%,rgba(0,0,0,0.3) 100%);
+}
+
+/* Icon circle */
+.act-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--dk);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  margin:-28px auto 0;position:relative;z-index:2;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Card body */
+.act-body{padding:20px 24px 28px;text-align:center;flex:1;display:flex;flex-direction:column;}
+.act-title{
+  font-family:var(--font-heading);font-size:18px;font-weight:700;
+  color:var(--text);margin:12px 0 8px;
+}
+.act-desc{
+  font-size:14px;color:var(--text-light);line-height:1.7;font-weight:300;
+  margin-bottom:20px;flex:1;
+}
+.act-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--dk);color:#fff;
+  padding:12px 28px;border-radius:100px;
+  font-size:14px;font-weight:500;text-decoration:none;
+  transition:all 0.3s;border:2px solid var(--dk);
+  font-family:var(--font-body);cursor:pointer;
+}
+.act-cta:hover{background:transparent;color:var(--dk);}
+
+/* ========== FOOTER ========== */
+.footer{
+  background:var(--dk);color:rgba(255,255,255,0.7);
+  padding:32px 48px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+@media(max-width:900px){.footer{padding:24px 20px;flex-direction:column;text-align:center;}}
+.footer-left{display:flex;align-items:center;gap:24px;flex-wrap:wrap;font-size:13px;}
+.footer-left span{display:flex;align-items:center;gap:6px;}
+.footer-left strong{color:#fff;font-weight:500;}
+.footer-center{display:flex;gap:12px;}
+.footer-center a{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.1);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:all 0.2s;font-size:16px;
+}
+.footer-center a:hover{background:var(--green-light);color:#fff;}
+.footer-right{font-size:12px;color:rgba(255,255,255,0.5);}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.6s ease-out both;}
+.fade-up-d1{animation-delay:0.1s;}
+.fade-up-d2{animation-delay:0.2s;}
+.fade-up-d3{animation-delay:0.3s;}
+.fade-up-d4{animation-delay:0.5s;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
+  <div class="nav-links">
+    <a href="#" class="active">หน้าแรก</a>
+    <a href="#activities">เกี่ยวกับกิจกรรม</a>
+    <a href="index.html">กำหนดการ</a>
+    <a href="#">สถานที่</a>
+    <a href="#">ภาพกิจกรรม</a>
+    <a href="#">ติดต่อเรา</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="images/banner-bg.png">
+    <source src="videos/banner.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title fade-up">
+      COM7<br>Beyond <span class="green">Giving</span> 2026
+    </h1>
+    <p class="hero-sub fade-up fade-up-d1">มากกว่าการให้ คือการสร้างอนาคตที่ยั่งยืนไปด้วยกัน</p>
+    <div class="hero-badges fade-up fade-up-d2">
+      <div class="hero-badge">
+        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="label">รักษ์สิ่งแวดล้อม<br>เพื่อโลกที่ดีกว่า</div>
+      </div>
+      <div class="hero-badge">
+        <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+        <div class="label">ร่วมมือร่วมใจ<br>สร้างคุณค่าให้สังคม</div>
+      </div>
+      <div class="hero-badge">
+        <div class="icon"><i class="fa-solid fa-heart"></i></div>
+        <div class="label">แบ่งปันความสุข<br>สู่ชุมชนและธรรมชาติ</div>
+      </div>
+    </div>
+  </div>
+  <div class="video-controls">
+    <button id="btn-mute" title="เปิด/ปิดเสียง"><i class="fa-solid fa-volume-xmark"></i></button>
+    <button id="btn-pause" title="เล่น/หยุด"><i class="fa-solid fa-pause"></i></button>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities" id="activities">
+  <div class="activities-header fade-up fade-up-d3">
+    <h2>เลือกกิจกรรมที่สนใจ</h2>
+    <p>ร่วมเป็นส่วนหนึ่งในการสร้างการเปลี่ยนแปลงที่ดี เพื่ออนาคตที่ยั่งยืน</p>
+  </div>
+
+  <div class="activities-grid">
+
+    <!-- กิจกรรม 1: ปลูกต้นไม้ -->
+    <div class="act-card fade-up fade-up-d1">
+      <div class="act-img">
+        <img src="images/wildlife/wildlife-planting1.jpg" alt="ปลูกต้นไม้ ฟื้นฟูป่า">
+        <div class="act-img-overlay"></div>
+      </div>
+      <div class="act-icon"><i class="fa-solid fa-seedling"></i></div>
+      <div class="act-body">
+        <div class="act-title">ปลูกต้นไม้ ฟื้นฟูป่า</div>
+        <div class="act-desc">
+          ร่วมปลูกต้นไม้และฟื้นฟูระบบนิเวศ<br>
+          เพื่อเพิ่มพื้นที่สีเขียวให้กับผืนป่า
+        </div>
+        <a class="act-cta" href="index.html">ดูรายละเอียดและสมัคร</a>
+      </div>
+    </div>
+
+    <!-- กิจกรรม 2: COM7 ปันอิ่ม ปันรัก -->
+    <div class="act-card fade-up fade-up-d2">
+      <div class="act-img">
+        <img src="images/activity2-card.jpg" alt="COM7 ปันอิ่ม ปันรัก">
+        <div class="act-img-overlay"></div>
+      </div>
+      <div class="act-icon"><i class="fa-solid fa-paw"></i></div>
+      <div class="act-body">
+        <div class="act-title">COM7 ปันอิ่ม ปันรัก</div>
+        <div class="act-desc">
+          ร่วมบริจาค แลก 1 อิ่ม ส่งต่อความสุข<br>
+          ให้น้องหมา-แมวที่รอความช่วยเหลือ<br>
+          📍 แม่ทิพย์ หมาจรฯ ระยอง
+        </div>
+        <a class="act-cta" href="activity2.html">ดูรายละเอียดและสมัคร</a>
+      </div>
+    </div>
+
+    <!-- กิจกรรม 3: กิจกรรมเพื่อชุมชน -->
+    <div class="act-card fade-up fade-up-d3">
+      <div class="act-img">
+        <img src="images/wildlife/wildlife-seedball.jpg" alt="กิจกรรมเพื่อชุมชน">
+        <div class="act-img-overlay"></div>
+      </div>
+      <div class="act-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <div class="act-body">
+        <div class="act-title">กิจกรรมเพื่อชุมชน</div>
+        <div class="act-desc">
+          ร่วมพัฒนาชุมชนและสิ่งแวดล้อม<br>
+          เพื่อคุณภาพชีวิตที่ดีอย่างยั่งยืน
+        </div>
+        <a class="act-cta" href="index.html">ดูรายละเอียดและสมัคร</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <strong>สอบถามข้อมูลเพิ่มเติม</strong>
+    <span><i class="fa-solid fa-phone"></i> 02-123-4567</span>
+    <span><i class="fa-solid fa-envelope"></i> csr@com7.com</span>
+  </div>
+  <div class="footer-center">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-line"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+  <div class="footer-right">© 2026 COM7 Public Company Limited. All rights reserved.</div>
+</footer>
+
+<script>
+  // Video controls
+  const vid = document.querySelector('.hero-video');
+  const hero = document.querySelector('.hero');
+  const btnMute = document.getElementById('btn-mute');
+  const btnPause = document.getElementById('btn-pause');
+  if(vid){
+    vid.addEventListener('loadeddata', ()=> hero.classList.add('video-loaded'));
+    vid.addEventListener('canplay', ()=> hero.classList.add('video-loaded'));
+    btnMute.addEventListener('click', ()=>{
+      vid.muted = !vid.muted;
+      btnMute.innerHTML = vid.muted
+        ? '<i class="fa-solid fa-volume-xmark"></i>'
+        : '<i class="fa-solid fa-volume-high"></i>';
+    });
+    btnPause.addEventListener('click', ()=>{
+      vid.paused ? vid.play() : vid.pause();
+      btnPause.innerHTML = vid.paused
+        ? '<i class="fa-solid fa-play"></i>'
+        : '<i class="fa-solid fa-pause"></i>';
+    });
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.style.animationPlayState='running';}});
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>{
+    el.style.animationPlayState='paused';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COM7 Beyond Giving 2026 — DAY TRIP กาญจนบุรี</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Mitr:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dk:#1a3c1a;--green:#2e7d32;--green-light:#4caf50;--green-pale:#e8f5e9;
+  --green-50:#f1f8e9;--cream:#faf8f3;--text:#222;--text-light:#666;
+  --font-heading:'Montserrat','Kanit',sans-serif;
+  --font-th:'Kanit',sans-serif;
+  --font-body:'Mitr',sans-serif;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;}
+
+/* ========== NAVBAR ========== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:64px;
+  background:#fff;border-bottom:1px solid #e8e8e8;
+  transition:box-shadow 0.3s;
+}
+.navbar.scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.08);}
+.nav-logo img{height:36px;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{
+  color:var(--text-light);text-decoration:none;font-size:14px;font-weight:400;
+  padding:8px 16px;border-radius:8px;transition:all 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--dk);font-weight:500;}
+.nav-cta{
+  background:var(--dk);color:#fff!important;border-radius:100px!important;
+  padding:10px 24px!important;font-weight:500!important;
+  transition:background 0.3s!important;
+}
+.nav-cta:hover{background:var(--green)!important;}
+@media(max-width:900px){
+  .navbar{padding:0 20px;}
+  .nav-links{display:none;}
+}
+
+/* ========== HERO ========== */
+.hero{
+  margin-top:64px;position:relative;overflow:hidden;
+}
+.hero-banner{width:100%;display:block;}
+
+/* ========== SECTION SHARED ========== */
+.section{padding:64px 80px;max-width:1300px;margin:0 auto;}
+@media(max-width:900px){.section{padding:48px 24px;}}
+.section-title{
+  font-family:var(--font-th);font-size:clamp(24px,3.5vw,34px);
+  font-weight:700;color:var(--dk);margin-bottom:8px;
+}
+.section-sub{font-size:15px;color:var(--text-light);font-weight:300;margin-bottom:40px;}
+
+/* ========== MAP / 3 DESTINATIONS ========== */
+.map-section{background:#fff;border-radius:24px;margin:0 80px;padding:56px 48px;box-shadow:0 4px 24px rgba(0,0,0,0.04);}
+@media(max-width:900px){.map-section{margin:0 16px;padding:36px 20px;}}
+.map-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:0;}
+.map-header-left .section-title{margin-bottom:4px;}
+
+/* Map layout: text left, map right */
+.map-layout{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;
+  margin-bottom:48px;
+}
+@media(max-width:900px){.map-layout{grid-template-columns:1fr;}}
+.map-illustration{position:relative;width:100%;}
+.map-illustration svg{width:100%;height:auto;}
+
+/* Map pin labels */
+.map-pin{
+  font-family:var(--font-th);font-weight:600;font-size:12px;fill:var(--dk);
+}
+.map-pin-num{
+  font-family:var(--font-heading);font-weight:800;font-size:16px;fill:#fff;
+}
+.map-route{
+  fill:none;stroke:var(--green-light);stroke-width:2.5;
+  stroke-dasharray:8 4;stroke-linecap:round;
+}
+.map-dest-label{
+  display:flex;gap:10px;align-items:flex-start;margin-bottom:20px;
+}
+.map-dest-num{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:var(--dk);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-heading);font-weight:800;font-size:14px;
+}
+.map-dest-info{}
+.map-dest-name{font-family:var(--font-th);font-size:16px;font-weight:700;color:var(--dk);}
+.map-dest-detail{font-size:13px;color:var(--text-light);font-weight:300;}
+.map-dest-time{font-size:13px;color:var(--green);font-weight:500;margin-top:2px;}
+.map-start{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--green-pale);padding:8px 14px;border-radius:8px;
+  font-size:13px;color:var(--dk);font-weight:500;margin-top:12px;
+}
+.map-start i{color:var(--green);}
+
+.destinations{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+@media(max-width:860px){.destinations{grid-template-columns:1fr;max-width:400px;margin:0 auto;}}
+
+.dest-card{
+  background:var(--green-50);border-radius:var(--radius);padding:28px 24px;
+  text-align:center;transition:transform 0.3s;position:relative;
+}
+.dest-card:hover{transform:translateY(-4px);}
+.dest-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--dk);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-heading);font-weight:800;font-size:20px;
+  margin:0 auto 16px;
+}
+.dest-name{font-family:var(--font-th);font-size:20px;font-weight:700;color:var(--dk);margin-bottom:4px;}
+.dest-place{font-size:13px;color:var(--text-light);font-weight:300;margin-bottom:4px;}
+.dest-time{font-size:14px;color:var(--green);font-weight:500;}
+
+/* ========== TIMELINE ========== */
+.timeline-section{padding:64px 80px;max-width:1300px;margin:0 auto;}
+@media(max-width:900px){.timeline-section{padding:48px 24px;}}
+
+.timeline{
+  display:flex;justify-content:space-between;position:relative;
+  padding-top:40px;gap:12px;
+}
+.timeline::before{
+  content:'';position:absolute;top:60px;left:5%;right:5%;
+  height:3px;background:linear-gradient(90deg,var(--green-pale),var(--green),var(--green-pale));
+  border-radius:4px;
+}
+@media(max-width:900px){
+  .timeline{flex-direction:column;gap:24px;padding-left:40px;}
+  .timeline::before{top:0;bottom:0;left:18px;width:3px;height:auto;right:auto;}
+}
+
+.tl-item{
+  flex:1;text-align:center;position:relative;
+  display:flex;flex-direction:column;align-items:center;
+}
+.tl-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:#fff;border:3px solid var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--green);margin-bottom:12px;
+  box-shadow:0 2px 8px rgba(46,125,50,0.15);position:relative;z-index:1;
+}
+.tl-time{font-family:var(--font-th);font-size:16px;font-weight:700;color:var(--dk);margin-bottom:4px;}
+.tl-desc{font-size:13px;color:var(--text-light);font-weight:300;line-height:1.5;max-width:160px;}
+.tl-meta{
+  display:flex;align-items:center;gap:4px;
+  font-size:11px;color:var(--green);margin-top:8px;
+}
+.tl-meta i{font-size:10px;}
+
+/* ========== HIGHLIGHTS ========== */
+.highlights{padding:64px 80px;max-width:1300px;margin:0 auto;}
+@media(max-width:900px){.highlights{padding:48px 24px;}}
+
+.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:860px){.hl-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto;}}
+
+.hl-card{border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:transform 0.3s;}
+.hl-card:hover{transform:translateY(-6px);}
+.hl-img{height:220px;overflow:hidden;}
+.hl-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.hl-card:hover .hl-img img{transform:scale(1.05);}
+.hl-body{padding:20px 24px;}
+.hl-title{font-family:var(--font-th);font-size:18px;font-weight:700;color:var(--dk);margin-bottom:6px;}
+.hl-desc{font-size:13px;color:var(--text-light);font-weight:300;line-height:1.6;}
+
+/* ========== CTA ========== */
+.cta-section{
+  text-align:center;padding:56px 48px;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--green-pale) 100%);
+  margin:40px 0 0;
+}
+.cta-title{font-family:var(--font-th);font-size:clamp(22px,3.5vw,32px);font-weight:700;color:var(--dk);margin-bottom:6px;}
+.cta-sub{font-size:16px;color:var(--text-light);font-weight:300;margin-bottom:28px;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--dk);color:#fff;
+  padding:18px 48px;border-radius:100px;
+  font-family:var(--font-th);font-size:18px;font-weight:600;
+  text-decoration:none;transition:all 0.3s;
+  box-shadow:0 4px 16px rgba(26,60,26,0.3);
+}
+.cta-btn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,125,50,0.3);}
+.cta-note{font-size:13px;color:var(--green);font-weight:400;margin-top:16px;}
+
+/* ========== FOOTER ========== */
+.footer{
+  background:#fff;border-top:1px solid #e8e8e8;
+  padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+@media(max-width:900px){.footer{padding:20px 20px;flex-direction:column;text-align:center;}}
+.footer-logo img{height:32px;}
+.footer-links{display:flex;gap:20px;font-size:13px;}
+.footer-links a{color:var(--text-light);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--dk);}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--green-pale);color:var(--dk);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:all 0.2s;font-size:14px;
+}
+.footer-social a:hover{background:var(--dk);color:#fff;}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.6s ease-out both;}
+.fd1{animation-delay:0.1s;}.fd2{animation-delay:0.2s;}.fd3{animation-delay:0.3s;}.fd4{animation-delay:0.4s;}.fd5{animation-delay:0.5s;}
+
+/* Leaf decorations */
+.leaf-deco{position:absolute;pointer-events:none;opacity:0.08;font-size:60px;z-index:0;}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
+  <div class="nav-links">
+    <a href="home.html" style="display:flex;align-items:center;gap:6px;color:var(--dk);font-weight:500;"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
+    <a href="#highlights">ภาพรวมกิจกรรม</a>
+    <a href="#highlights">ไฮไลต์สถานที่</a>
+    <a href="#details">รายละเอียด</a>
+    <a href="#faq">คำถามที่พบบ่อย</a>
+    <a href="#register" class="nav-cta">ลงทะเบียนเข้าร่วมกิจกรรม</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-banner" src="images/activity1-banner.png" alt="COM7 ชวนทำดี - DAY TRIP กาญจนบุรี">
+</section>
+
+<!-- MAP -->
+<section style="max-width:1200px;margin:0 auto;padding:32px 48px;">
+  <img src="images/map.png" alt="แผนที่เส้นทาง 3 จุดหมาย" style="width:100%;border-radius:16px;">
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights" id="highlights">
+  <div class="section-title">ไฮไลต์ที่ไม่อยากให้พลาด 📸</div>
+  <p class="section-sub">3 สถานที่ 3 ประสบการณ์ที่จะทำให้วันนี้พิเศษ</p>
+
+  <div class="hl-grid">
+    <div class="hl-card fade-up fd1">
+      <div class="hl-img">
+        <img src="images/wildlife/wildlife-planting1.jpg" alt="ปลูกป่าคืนธรรมชาติ">
+      </div>
+      <div class="hl-body">
+        <div class="hl-title">ปลูกป่าคืนธรรมชาติ</div>
+        <div class="hl-desc">ฟื้นฟูต้นไม้ให้ผืนป่า เพื่อเพิ่มพื้นที่สีเขียว<br>และสร้างที่อยู่ให้สัตว์ป่า</div>
+      </div>
+    </div>
+    <div class="hl-card fade-up fd2">
+      <div class="hl-img">
+        <img src="images/bridge/bridge-main.webp" alt="สัมผัสเสน่ห์เมืองกาญจน์">
+      </div>
+      <div class="hl-body">
+        <div class="hl-title">สัมผัสเสน่ห์เมืองกาญจน์</div>
+        <div class="hl-desc">ธรรมชาติ ประวัติศาสตร์ และวิถีชีวิต<br>ริมสะพานข้ามแม่น้ำแคว</div>
+      </div>
+    </div>
+    <div class="hl-card fade-up fd3">
+      <div class="hl-img">
+        <img src="images/temple/temple-aerial1.jpg" alt="ไหว้พระ ชมวิวมุมสูง">
+      </div>
+      <div class="hl-body">
+        <div class="hl-title">ไหว้พระ ชมวิวมุมสูง</div>
+        <div class="hl-desc">เติมพลังใจให้ชีวิตและการทำงาน<br>ณ วัดถ้ำเสือ จ.กาญจนบุรี</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="register">
+  <div class="cta-title">พร้อมออกไปสร้างสิ่งดี ๆ ด้วยกันไหม?</div>
+  <div class="cta-sub">ให้ · รักษ์ · เติบโต ไปด้วยกัน</div>
+  <a href="#" class="cta-btn"><i class="fa-solid fa-seedling"></i> ลงทะเบียนเข้าร่วมกิจกรรม <i class="fa-solid fa-arrow-right"></i></a>
+  <div class="cta-note">🌿 จำนวนจำกัด รีบจองสิทธิ์ก่อนเต็ม!</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
+  <div class="footer-links">
+    <a href="#highlights">ภาพรวมกิจกรรม</a>
+    <a href="#timeline">แผนการเดินทาง</a>
+    <a href="#highlights">ไฮไลต์สถานที่</a>
+    <a href="#details">รายละเอียด</a>
+    <a href="#faq">คำถามที่พบบ่อย</a>
+  </div>
+  <div class="footer-social">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-line"></i></a>
+    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  });
+
+  // Scroll fade-up
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running';});
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>{
+    el.style.animationPlayState='paused';obs.observe(el);
+  });
+</script>
+</body>
+</html>
