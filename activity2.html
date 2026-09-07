@@ -136,6 +136,66 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp 0.6s ease-out both;}
 .fd1{animation-delay:0.1s;}.fd2{animation-delay:0.2s;}.fd3{animation-delay:0.3s;}.fd4{animation-delay:0.4s;}
+
+/* ===== LOCATION ===== */
+.loc-section{text-align:center;padding:56px 24px 8px;}
+.loc-label{font-family:var(--font-heading);letter-spacing:3px;font-size:13px;font-weight:600;color:var(--green);
+  display:inline-flex;align-items:center;gap:14px;margin-bottom:10px;}
+.loc-label::before,.loc-label::after{content:'';width:36px;height:1px;background:var(--green-light);opacity:0.5;}
+.loc-name{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  font-family:var(--font-th);font-size:clamp(22px,3.4vw,32px);font-weight:700;color:var(--dk);}
+.loc-name .pin{color:var(--green);font-size:34px;}
+.loc-map-btn{display:inline-flex;align-items:center;gap:12px;margin-top:22px;
+  background:#fff;color:var(--dk);border:2px solid var(--green-pale);
+  padding:12px 28px;border-radius:100px;font-family:var(--font-th);font-weight:600;font-size:16px;
+  text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:all 0.25s;}
+.loc-map-btn:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,125,50,0.18);}
+.loc-map-btn .arrow{color:var(--green);}
+
+/* ===== GALLERY ===== */
+.gallery-section{padding:32px 24px 64px;text-align:center;}
+.gallery-label{font-family:var(--font-heading);letter-spacing:3px;font-size:13px;font-weight:600;color:var(--green);
+  display:inline-flex;align-items:center;gap:14px;margin-bottom:8px;}
+.gallery-label::before,.gallery-label::after{content:'';width:36px;height:1px;background:var(--green-light);opacity:0.5;}
+.gallery-title{font-family:var(--font-th);font-size:clamp(22px,3.4vw,32px);font-weight:700;color:var(--dk);margin-bottom:32px;}
+.slider{position:relative;max-width:920px;margin:0 auto;}
+.slider-track{overflow:hidden;border-radius:24px;box-shadow:0 12px 40px rgba(0,0,0,0.12);}
+.slides{display:flex;transition:transform 0.5s ease;}
+.slides img{min-width:100%;height:clamp(260px,42vw,460px);object-fit:cover;display:block;}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;border:none;background:#fff;color:var(--dk);
+  font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:all 0.2s;z-index:2;}
+.slider-btn:hover{background:var(--green);color:#fff;}
+.slider-btn.prev{left:-18px;}.slider-btn.next{right:-18px;}
+@media(max-width:640px){.slider-btn.prev{left:6px;}.slider-btn.next{right:6px;}}
+.slider-dots{display:flex;gap:10px;justify-content:center;margin-top:20px;}
+.slider-dots .dot{width:11px;height:11px;border-radius:50%;background:#ccc;cursor:pointer;transition:all 0.2s;}
+.slider-dots .dot.active{background:var(--green);width:28px;border-radius:6px;}
+
+/* ===== DONATION ===== */
+.donate-section{background:#fff;border-radius:28px 28px 0 0;box-shadow:0 -8px 40px rgba(0,0,0,0.05);
+  max-width:1100px;margin:0 auto;padding:48px;}
+@media(max-width:900px){.donate-section{padding:32px 20px;border-radius:20px 20px 0 0;}}
+.donate-grid{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:center;}
+@media(max-width:800px){.donate-grid{grid-template-columns:1fr;gap:28px;}}
+.qr-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:12px;box-shadow:0 6px 20px rgba(0,0,0,0.06);}
+.qr-card img{width:100%;display:block;border-radius:8px;}
+.donate-label{font-family:var(--font-heading);letter-spacing:3px;font-size:13px;font-weight:600;color:var(--green);margin-bottom:4px;}
+.donate-title{font-family:var(--font-th);font-size:clamp(24px,3.4vw,34px);font-weight:700;color:var(--dk);margin-bottom:24px;}
+.donate-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0;}
+.donate-row:last-child{border-bottom:none;}
+.donate-row .d-icon{width:44px;height:44px;border-radius:50%;background:var(--green-pale);color:var(--green);
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.donate-row .d-label{font-size:13px;color:var(--text-light);margin-bottom:2px;}
+.donate-row .d-value{font-family:var(--font-th);font-size:20px;font-weight:700;color:var(--dk);line-height:1.3;}
+.donate-row .d-value.acct{letter-spacing:1px;}
+.copy-btn{margin-left:auto;display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:var(--dk);border:2px solid var(--green-pale);
+  padding:12px 22px;border-radius:100px;font-family:var(--font-th);font-weight:600;font-size:14px;
+  cursor:pointer;transition:all 0.2s;flex-shrink:0;}
+.copy-btn:hover{border-color:var(--green);color:var(--green);}
+.copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green);}
+@media(max-width:540px){.copy-btn{margin-left:0;margin-top:10px;}.donate-row{flex-wrap:wrap;}}
 </style>
 </head>
 <body>
@@ -145,9 +205,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   <div class="nav-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
   <div class="nav-links">
     <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
-    <a href="#howto">วิธีร่วมบริจาค</a>
-    <a href="#details">รายละเอียด</a>
-    <a href="#destination">สถานที่ส่งมอบ</a>
+    <a href="#gallery">แกลเลอรี</a>
+    <a href="#donate">ร่วมบริจาค</a>
   </div>
 </nav>
 
@@ -156,86 +215,68 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   <img class="hero-banner" src="images/activity2-banner.png?v=2" alt="COM7 ปันอิ่ม ปันรัก">
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="howto">
-  <div class="section-title fade-up">ร่วมบริจาคง่าย ๆ 4 ขั้นตอน 🧡</div>
-  <p class="section-sub fade-up fd1">ทุกบาทที่บริจาค จะถูกแปลงเป็นอาหารส่งถึงน้องหมา-แมว</p>
+<!-- LOCATION -->
+<section class="loc-section" id="destination">
+  <div class="loc-label fade-up">LOCATION</div>
+  <div class="loc-name fade-up fd1"><i class="fa-solid fa-location-dot pin"></i> แม่ทิพย์ หมาจรฯ จ.ระยอง</div>
+  <a class="loc-map-btn fade-up fd2" href="https://www.google.com/maps/search/?api=1&query=แม่ทิพย์+หมาจร+ระยอง" target="_blank" rel="noopener">
+    <i class="fa-solid fa-map"></i> ดูแผนที่ <i class="fa-solid fa-chevron-right arrow"></i>
+  </a>
+</section>
 
-  <div class="how-grid">
-    <div class="how-card fade-up fd1">
-      <div class="how-num">1</div>
-      <div class="how-icon">💰</div>
-      <div class="how-title">พนักงานร่วมบริจาคเงิน</div>
-      <div class="how-desc">สะสมเงินบริจาค<br>เพื่อนำไปซื้ออาหารสัตว์</div>
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-label fade-up">GALLERY</div>
+  <div class="gallery-title fade-up fd1">บรรยากาศและน้อง ๆ</div>
+  <div class="slider fade-up fd2">
+    <div class="slider-track">
+      <div class="slides" id="slides">
+        <img src="images/dog-gallery1.jpg" alt="น้องหมา 1">
+        <img src="images/dog-gallery2.jpg" alt="น้องหมา 2">
+        <img src="images/dog-gallery3.jpg" alt="น้องหมา 3">
+        <img src="images/dog-gallery4.jpg" alt="น้องหมา 4">
+        <img src="images/dog-gallery5.jpg" alt="น้องหมา 5">
+      </div>
     </div>
-    <div class="how-card fade-up fd2">
-      <div class="how-num">2</div>
-      <div class="how-icon">🛒</div>
-      <div class="how-title">ซื้ออาหารจาก 4 Paws</div>
-      <div class="how-desc">อาหารจากสินค้าคงคลัง 4 Paws<br>ใกล้หมดอายุ แต่บริโภคได้ปลอดภัย</div>
-    </div>
-    <div class="how-card fade-up fd3">
-      <div class="how-num">3</div>
-      <div class="how-icon">🏦</div>
-      <div class="how-title">โอนผ่านบัญชี HR COM7</div>
-      <div class="how-desc">เงินเข้าบัญชี HR COM7<br>แล้วโอนซื้อสินค้ากับ 4 Paws</div>
-    </div>
-    <div class="how-card fade-up fd4">
-      <div class="how-num">4</div>
-      <div class="how-icon">🚚</div>
-      <div class="how-title">จัดส่งให้สถานสงเคราะห์</div>
-      <div class="how-desc">อาหารทั้งหมดรวบรวม<br>และจัดส่งไปยังสถานสงเคราะห์</div>
-    </div>
+    <button class="slider-btn prev" id="prevBtn" aria-label="ก่อนหน้า"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="slider-btn next" id="nextBtn" aria-label="ถัดไป"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="slider-dots" id="dots"></div>
   </div>
 </section>
 
-<!-- DETAILS -->
-<section class="section" id="details">
-  <div class="section-title fade-up">รายละเอียดกิจกรรม 📋</div>
-  <p class="section-sub fade-up fd1">ข้อมูลสำคัญที่ควรรู้ก่อนร่วมบริจาค</p>
-
-  <div class="info-box fade-up fd2">
-    <h3>รูปแบบกิจกรรม</h3>
-    <ul class="info-list">
-      <li><i class="fa-solid fa-check-circle"></i> พนักงานสามารถร่วมบริจาคเงิน เพื่อสะสมและนำไปซื้ออาหารสุนัขและอาหารแมว (สินค้าคงคลังของ 4 Paws) เพื่อนำไปส่งต่อให้สถานสงเคราะห์หมาจร แมวจร</li>
-      <li><i class="fa-solid fa-check-circle"></i> อาหารสัตว์ทั้งหมดจะมาจากสินค้าคงคลังของ 4 Paws ที่อยู่ในช่วงใกล้หมดอายุ แต่ยังสามารถบริโภคได้อย่างปลอดภัย</li>
-      <li><i class="fa-solid fa-check-circle"></i> เงินที่ได้รับจากการแลกอาหาร จะนำเข้า "บัญชี HR COM7" และโอนซื้อสินค้ากับ 4 Paws</li>
-      <li><i class="fa-solid fa-check-circle"></i> หลังสิ้นสุดระยะเวลารับบริจาค อาหารทั้งหมดจะถูกรวบรวมและจัดส่งไปยังสถานสงเคราะห์สัตว์จรจัดที่กำหนดไว้</li>
-    </ul>
-  </div>
-
-  <div class="info-box fade-up fd3">
-    <h3>ระยะเวลารับบริจาค</h3>
-    <ul class="info-list">
-      <li><i class="fa-solid fa-calendar-days"></i> ตั้งแต่เดือน <strong>กันยายน 2569 – ตุลาคม 2569</strong> (ระยะเวลา 2 เดือน)</li>
-    </ul>
-  </div>
-</section>
-
-<!-- DESTINATION -->
-<section class="section" id="destination">
-  <div class="section-title fade-up">สถานที่ส่งมอบ 📍</div>
-  <p class="section-sub fade-up fd1">อาหารจะถูกจัดส่งให้กับ</p>
-
-  <div class="dest-box fade-up fd2">
-    <div class="dest-icon">🐶</div>
-    <div>
-      <h3>แม่ทิพย์ หมาจรฯ ระยอง</h3>
-      <p>
-        สถานสงเคราะห์สัตว์จรจัดที่ต้องการความช่วยเหลือ<br>
-        📍 อำเภอนิคมพัฒนา จังหวัดระยอง<br>
-        ดูแลน้องหมาและน้องแมวจรจัดมากมายที่รอความช่วยเหลือจากทุกคน
-      </p>
+<!-- DONATION -->
+<section class="donate-section" id="donate">
+  <div class="donate-grid">
+    <div class="qr-card fade-up">
+      <img src="images/activity2-qr.png" alt="QR Code บริจาค คอมเซเว่น เพื่อการกุศล">
+    </div>
+    <div class="fade-up fd1">
+      <div class="donate-label">DONATION</div>
+      <div class="donate-title">ร่วมบริจาค</div>
+      <div class="donate-row">
+        <div class="d-icon"><i class="fa-solid fa-building-columns"></i></div>
+        <div>
+          <div class="d-label">ธนาคาร</div>
+          <div class="d-value">ธนาคารกสิกรไทย</div>
+        </div>
+      </div>
+      <div class="donate-row">
+        <div class="d-icon"><i class="fa-solid fa-user"></i></div>
+        <div>
+          <div class="d-label">ชื่อบัญชี</div>
+          <div class="d-value">บมจ.คอมเซเว่น เพื่อการกุศล</div>
+        </div>
+      </div>
+      <div class="donate-row">
+        <div class="d-icon"><i class="fa-solid fa-hashtag"></i></div>
+        <div>
+          <div class="d-label">เลขที่บัญชี</div>
+          <div class="d-value acct" id="acctNo">042-1-13364-6</div>
+        </div>
+        <button class="copy-btn" id="copyBtn"><i class="fa-regular fa-copy"></i> คัดลอกเลขที่บัญชี</button>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-title">พร้อมส่งต่อความอิ่มให้น้อง ๆ ไหม? 🐾</div>
-  <div class="cta-sub">ทุกบาทที่บริจาค คือ 1 อิ่มที่มีความหมาย</div>
-  <a href="#" class="cta-btn"><i class="fa-solid fa-paw"></i> ร่วมบริจาคเลย <i class="fa-solid fa-arrow-right"></i></a>
-  <div class="cta-note">🧡 ร่วมกันปันอิ่ม ปันรัก ตลอดเดือน ก.ย. – ต.ค. 2569</div>
 </section>
 
 <!-- FOOTER -->
@@ -257,6 +298,37 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   document.querySelectorAll('.fade-up').forEach(el=>{
     el.style.animationPlayState='paused';obs.observe(el);
   });
+
+  // Gallery slider
+  (function(){
+    const slides=document.getElementById('slides');
+    const imgs=slides?slides.children.length:0;
+    const dotsBox=document.getElementById('dots');
+    let cur=0;
+    if(slides && imgs){
+      for(let i=0;i<imgs;i++){
+        const d=document.createElement('div');d.className='dot'+(i===0?' active':'');
+        d.addEventListener('click',()=>go(i));dotsBox.appendChild(d);
+      }
+      const dots=dotsBox.children;
+      function go(i){cur=(i+imgs)%imgs;slides.style.transform='translateX(-'+(cur*100)+'%)';
+        for(let k=0;k<dots.length;k++)dots[k].classList.toggle('active',k===cur);}
+      document.getElementById('prevBtn').addEventListener('click',()=>go(cur-1));
+      document.getElementById('nextBtn').addEventListener('click',()=>go(cur+1));
+      setInterval(()=>go(cur+1),5000);
+    }
+  })();
+  // Copy account number
+  (function(){
+    const btn=document.getElementById('copyBtn');
+    if(btn){btn.addEventListener('click',()=>{
+      const no=document.getElementById('acctNo').innerText.replace(/[^0-9]/g,'');
+      navigator.clipboard.writeText(no).then(()=>{
+        btn.classList.add('copied');
+        btn.innerHTML='<i class="fa-solid fa-check"></i> คัดลอกแล้ว';
+        setTimeout(()=>{btn.classList.remove('copied');
+          btn.innerHTML='<i class="fa-regular fa-copy"></i> คัดลอกเลขที่บัญชี';},2000);
+      });
+    });}
+  })();
 </script>
-</body>
-</html>
