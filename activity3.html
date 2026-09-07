@@ -126,6 +126,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.2s;font-size:14px;
 }
 .footer-social a:hover{background:var(--dk);color:#fff;}
+.footer-contact{display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--text);}
+.footer-contact strong{color:var(--dk);font-weight:600;}
+.footer-contact span{display:flex;align-items:center;gap:6px;}
+.footer-contact span i{color:var(--green);}
 .footer-copy{font-size:12px;color:#aaa;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
@@ -228,11 +232,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-logo"><img src="images/logos/com7-logo-clean.png" alt="COM7"></div>
-  <div class="footer-social">
-    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#"><i class="fa-brands fa-line"></i></a>
-    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+  <div class="footer-contact">
+    <strong>สอบถามข้อมูลเพิ่มเติม</strong>
+    <span><i class="fa-solid fa-phone"></i> 02 017 7777 ต่อ 7224, 7213</span>
   </div>
   <div class="footer-copy">© 2026 COM7 Public Company Limited. All rights reserved.</div>
 </footer>
