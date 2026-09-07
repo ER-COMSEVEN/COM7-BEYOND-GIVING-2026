@@ -326,7 +326,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
         <div class="hl-desc">ฟื้นฟูต้นไม้ให้ผืนป่า เพื่อเพิ่มพื้นที่สีเขียว<br>และสร้างที่อยู่ให้สัตว์ป่า</div>
       </div>
     </div>
-    <div class="hl-card fade-up fd2">
+    <div class="hl-card clickable fade-up fd2" onclick="openBridgeModal()">
+      <div class="hl-badge"><i class="fa-solid fa-hand-pointer"></i> คลิกดูกิจกรรม</div>
       <div class="hl-img">
         <img src="images/bridge/bridge-main.webp" alt="สัมผัสเสน่ห์เมืองกาญจน์">
       </div>
@@ -401,6 +402,52 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   </div>
 </div>
 
+<!-- BRIDGE MODAL -->
+<div class="modal-overlay" id="bridgeModal" onclick="if(event.target===this)closeBridgeModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="m-tag">🌉 สะพานข้ามแม่น้ำแคว จ.กาญจนบุรี</span>
+      <button class="modal-close" onclick="closeBridgeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2>สัมผัสเสน่ห์เมืองกาญจน์</h2>
+      <p>3 ประสบการณ์ริมแม่น้ำแคว ธรรมชาติ ประวัติศาสตร์ และวิถีชีวิต</p>
+    </div>
+    <div class="modal-body">
+      <div class="act-steps">
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">1</span>
+            <img src="images/bridge/bridge-walk.webp" alt="เดินข้ามสะพาน">
+          </div>
+          <div class="act-step-body">
+            <h4>🚶 เดินข้ามสะพานประวัติศาสตร์</h4>
+            <p>เดินบนสะพานเหล็กข้ามแม่น้ำแคว สัมผัสร่องรอยประวัติศาสตร์สงครามโลกครั้งที่ 2 และชมทัศนียภาพสองฝั่งแม่น้ำ</p>
+          </div>
+        </div>
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">2</span>
+            <img src="images/bridge/bridge-train.webp" alt="ชมรถไฟสายมรณะ">
+          </div>
+          <div class="act-step-body">
+            <h4>🚂 ชมรถไฟสายมรณะ</h4>
+            <p>เรียนรู้เรื่องราวทางรถไฟสายมรณะและหัวรถจักรไอน้ำประวัติศาสตร์ ที่เป็นอนุสรณ์แห่งความทรงจำของเมืองกาญจนบุรี</p>
+          </div>
+        </div>
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">3</span>
+            <img src="images/bridge/bridge-main.webp" alt="พักทานอาหารริมแม่น้ำแคว">
+          </div>
+          <div class="act-step-body">
+            <h4>🍽️ พักทานอาหาร ชมวิวแม่น้ำแคว</h4>
+            <p>แวะพักทานอาหารกลางวันริมแม่น้ำแคว เติมพลังท่ามกลางบรรยากาศธรรมชาติอันร่มรื่นและสวยงาม</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-contact">
@@ -428,4 +475,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   function openActModal(){document.getElementById('actModal').classList.add('open');document.body.style.overflow='hidden';}
   function closeActModal(){document.getElementById('actModal').classList.remove('open');document.body.style.overflow='';}
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeActModal();});
+
+  function openBridgeModal(){document.getElementById('bridgeModal').classList.add('open');document.body.style.overflow='hidden';}
+  function closeBridgeModal(){document.getElementById('bridgeModal').classList.remove('open');document.body.style.overflow='';}
 </script>
