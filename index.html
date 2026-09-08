@@ -240,9 +240,49 @@ body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background
   .hero-video{animation:none;}
   .hero-leaves{display:none;}
 }
+
+/* ===== WELCOME POPUP ===== */
+.pop-overlay{position:fixed;inset:0;z-index:2000;background:rgba(15,30,15,0.72);backdrop-filter:blur(5px);
+  display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity 0.35s;}
+.pop-overlay.show{opacity:1;visibility:visible;}
+.pop-box{position:relative;width:min(90vw,440px);transform:scale(0.92);transition:transform 0.35s;}
+.pop-overlay.show .pop-box{transform:scale(1);}
+.pop-slides{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,0.4);background:#fff;}
+.pop-slides img{width:100%;display:none;}
+.pop-slides img.active{display:block;animation:popFade 0.4s ease;}
+@keyframes popFade{from{opacity:0;}to{opacity:1;}}
+.pop-close{position:absolute;top:-14px;right:-14px;z-index:5;width:40px;height:40px;border-radius:50%;
+  border:none;background:#fff;color:#1a3c1a;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.3);
+  transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.pop-close:hover{background:#2e7d32;color:#fff;transform:rotate(90deg);}
+.pop-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;
+  border:none;background:rgba(255,255,255,0.85);color:#1a3c1a;font-size:16px;cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,0.25);transition:all 0.2s;z-index:4;}
+.pop-nav:hover{background:#2e7d32;color:#fff;}
+.pop-nav.prev{left:12px;}.pop-nav.next{right:12px;}
+.pop-dots{display:flex;gap:8px;justify-content:center;margin-top:16px;}
+.pop-dots .d{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;}
+.pop-dots .d.active{background:#fff;width:26px;border-radius:5px;}
 </style>
 </head>
 <body>
+
+<!-- WELCOME POPUP -->
+<div class="pop-overlay" id="popup" onclick="if(event.target===this)closePopup()">
+  <div class="pop-box">
+    <button class="pop-close" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="pop-slides" id="popSlides">
+      <img src="images/popup1.png" class="active" alt="COM7 Beyond Giving ปลูกป่า">
+      <img src="images/popup2.png" alt="COM7 Beyond Giving บริจาคเงิน">
+      <img src="images/popup3.png" alt="COM7 Beyond Giving บริจาคลูกแม็ก">
+      <img src="images/popup4.png" alt="COM7 Beyond Giving">
+      <button class="pop-nav prev" onclick="popGo(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="pop-nav next" onclick="popGo(1)"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <div class="pop-dots" id="popDots"></div>
+  </div>
+</div>
+
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -377,6 +417,26 @@ body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background
     el.style.animationPlayState='paused';
     obs.observe(el);
   });
+
+  // Welcome popup slider
+  (function(){
+    const overlay=document.getElementById('popup');
+    const imgs=document.querySelectorAll('#popSlides img');
+    const dotsBox=document.getElementById('popDots');
+    let cur=0;
+    if(overlay && imgs.length){
+      for(let i=0;i<imgs.length;i++){
+        const d=document.createElement('div');d.className='d'+(i===0?' active':'');
+        d.addEventListener('click',()=>popShow(i));dotsBox.appendChild(d);
+      }
+      window.popShow=function(i){cur=(i+imgs.length)%imgs.length;
+        imgs.forEach((im,k)=>im.classList.toggle('active',k===cur));
+        [...dotsBox.children].forEach((d,k)=>d.classList.toggle('active',k===cur));};
+      window.popGo=function(step){popShow(cur+step);};
+      window.closePopup=function(){overlay.classList.remove('show');document.body.style.overflow='';};
+      // show on load
+      setTimeout(()=>{overlay.classList.add('show');},600);
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
+    }
+  })();
 </script>
-</body>
-</html>
