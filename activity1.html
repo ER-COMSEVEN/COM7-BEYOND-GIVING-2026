@@ -336,7 +336,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
         <div class="hl-desc">ธรรมชาติ ประวัติศาสตร์ และวิถีชีวิต<br>ริมสะพานข้ามแม่น้ำแคว</div>
       </div>
     </div>
-    <div class="hl-card fade-up fd3">
+    <div class="hl-card clickable fade-up fd3" onclick="openTempleModal()">
+      <div class="hl-badge"><i class="fa-solid fa-hand-pointer"></i> คลิกดูกิจกรรม</div>
       <div class="hl-img">
         <img src="images/temple/temple-aerial1.jpg" alt="ไหว้พระ ชมวิวมุมสูง">
       </div>
@@ -448,6 +449,52 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   </div>
 </div>
 
+<!-- TEMPLE MODAL -->
+<div class="modal-overlay" id="templeModal" onclick="if(event.target===this)closeTempleModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="m-tag">🛕 วัดถ้ำเสือ จ.กาญจนบุรี</span>
+      <button class="modal-close" onclick="closeTempleModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2>ไหว้พระ ชมวิวมุมสูง</h2>
+      <p>3 ช่วงเวลาแห่งการเติมพลังใจ ณ วัดถ้ำเสือ</p>
+    </div>
+    <div class="modal-body">
+      <div class="act-steps">
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">1</span>
+            <img src="images/temple/temple-buddha.webp" alt="สักการะพระใหญ่">
+          </div>
+          <div class="act-step-body">
+            <h4>🙏 สักการะพระพุทธรูปองค์ใหญ่</h4>
+            <p>กราบสักการะพระพุทธรูปองค์ใหญ่ประจำวัดถ้ำเสือ ขอพรเพื่อความเป็นสิริมงคลและกำลังใจในการทำงาน</p>
+          </div>
+        </div>
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">2</span>
+            <img src="images/temple/temple-stairs.jpg" alt="ขึ้นบันไดสู่เจดีย์">
+          </div>
+          <div class="act-step-body">
+            <h4>🪜 พิชิตบันไดสู่เจดีย์</h4>
+            <p>เดินขึ้นบันไดสู่เจดีย์เกษแก้วมหาปราสาท ออกกำลังกายไปพร้อมกับสัมผัสสถาปัตยกรรมอันงดงาม</p>
+          </div>
+        </div>
+        <div class="act-step">
+          <div class="act-step-img">
+            <span class="act-step-no">3</span>
+            <img src="images/temple/temple-aerial2.jpg" alt="ชมวิวมุมสูง">
+          </div>
+          <div class="act-step-body">
+            <h4>🌄 ชมวิวทุ่งนามุมสูง</h4>
+            <p>ชมทัศนียภาพทุ่งนาเขียวขจีและวิวเมืองกาญจนบุรีแบบพาโนรามาจากมุมสูงของวัด เก็บภาพความประทับใจ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-contact">
@@ -478,4 +525,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
 
   function openBridgeModal(){document.getElementById('bridgeModal').classList.add('open');document.body.style.overflow='hidden';}
   function closeBridgeModal(){document.getElementById('bridgeModal').classList.remove('open');document.body.style.overflow='';}
+
+  function openTempleModal(){document.getElementById('templeModal').classList.add('open');document.body.style.overflow='hidden';}
+  function closeTempleModal(){document.getElementById('templeModal').classList.remove('open');document.body.style.overflow='';}
 </script>
