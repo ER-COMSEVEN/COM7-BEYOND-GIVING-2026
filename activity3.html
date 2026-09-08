@@ -135,6 +135,21 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp 0.6s ease-out both;}
 .fd1{animation-delay:0.1s;}.fd2{animation-delay:0.2s;}.fd3{animation-delay:0.3s;}.fd4{animation-delay:0.4s;}
+
+/* ===== DONATION POINTS (buildings) ===== */
+.pt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+@media(max-width:760px){.pt-grid{grid-template-columns:1fr;}}
+.pt-card{background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.07);transition:transform 0.3s;}
+.pt-card:hover{transform:translateY(-5px);}
+.pt-img{height:220px;overflow:hidden;}
+.pt-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.pt-card:hover .pt-img img{transform:scale(1.06);}
+.pt-body{padding:22px 26px;display:flex;align-items:center;gap:14px;}
+.pt-body .pt-pin{width:44px;height:44px;border-radius:50%;background:var(--green-pale);color:var(--green);
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.pt-body h3{font-family:var(--font-th);font-size:20px;font-weight:700;color:var(--dk);margin-bottom:2px;}
+.pt-body p{font-size:14px;color:var(--text-light);font-weight:300;}
 </style>
 </head>
 <body>
@@ -145,8 +160,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   <div class="nav-links">
     <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
     <a href="#howto">วิธีร่วมบริจาค</a>
-    <a href="#details">รายละเอียด</a>
-    <a href="#destination">สถานที่ส่งมอบ</a>
+    <a href="#destination">จุดรับบริจาค</a>
   </div>
 </nav>
 
@@ -182,42 +196,31 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   </div>
 </section>
 
-<!-- DETAILS -->
-<section class="section" id="details">
-  <div class="section-title fade-up">รายละเอียดกิจกรรม 📋</div>
-  <p class="section-sub fade-up fd1">ข้อมูลสำคัญที่ควรรู้ก่อนร่วมบริจาค</p>
-
-  <div class="info-box fade-up fd2">
-    <h3>รูปแบบกิจกรรม</h3>
-    <ul class="info-list">
-      <li><i class="fa-solid fa-check-circle"></i> รวบรวมเศษลวดเย็บกระดาษ (ลูกแม็ก) ที่ใช้แล้ว เพื่อนำไปส่งมอบให้กับสมาคมคนพิการทางการเคลื่อนไหวสากล</li>
-      <li><i class="fa-solid fa-check-circle"></i> เศษลวดเย็บกระดาษจะถูกนำไปแปรรูปและสร้างประโยชน์ต่อ ช่วยสนับสนุนการดำเนินงานของสมาคมฯ</li>
-      <li><i class="fa-solid fa-check-circle"></i> เป็นการนำวัสดุเหลือใช้กลับมาสร้างคุณค่าใหม่ (Upcycle) ลดขยะและช่วยเหลือสังคมไปพร้อมกัน</li>
-    </ul>
-  </div>
-
-  <div class="info-box fade-up fd3">
-    <h3>ระยะเวลารับบริจาค</h3>
-    <ul class="info-list">
-      <li><i class="fa-solid fa-calendar-days"></i> ตั้งแต่เดือน <strong>กันยายน 2569 – 31 พฤศจิกายน 2569</strong> (ระยะเวลา 3 เดือน)</li>
-    </ul>
-  </div>
-</section>
-
-<!-- DESTINATION -->
+<!-- DONATION POINTS -->
 <section class="section" id="destination">
-  <div class="section-title fade-up">สถานที่ส่งมอบ 📍</div>
-  <p class="section-sub fade-up fd1">ลูกแม็กที่รวบรวมได้จะถูกส่งมอบให้กับ</p>
+  <div class="section-title fade-up">จุดรับบริจาคเศษลวดลูกแม็ก 📍</div>
+  <p class="section-sub fade-up fd1">ร่วมส่งได้ที่จุดรับบริจาคใกล้คุณ</p>
 
-  <div class="dest-box fade-up fd2">
-    <div class="dest-icon">♿</div>
-    <div>
-      <h3>สมาคมคนพิการทางการเคลื่อนไหวสากล</h3>
-      <p>
-        Association of Persons with Physical Disability International<br>
-        📍 ต.คูคต อ.ลำลูกกา จ.ปทุมธานี<br>
-        องค์กรที่ดูแลและสนับสนุนคุณภาพชีวิตของผู้พิการทางการเคลื่อนไหว
-      </p>
+  <div class="pt-grid">
+    <div class="pt-card fade-up fd1">
+      <div class="pt-img"><img src="images/building1.png" alt="อาคาร 1"></div>
+      <div class="pt-body">
+        <div class="pt-pin"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <h3>อาคาร 1</h3>
+          <p>จุดรับบริจาคเศษลวดลูกแม็ก</p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-card fade-up fd2">
+      <div class="pt-img"><img src="images/building3.png" alt="อาคาร 3"></div>
+      <div class="pt-body">
+        <div class="pt-pin"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <h3>อาคาร 3</h3>
+          <p>จุดรับบริจาคเศษลวดลูกแม็ก</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
