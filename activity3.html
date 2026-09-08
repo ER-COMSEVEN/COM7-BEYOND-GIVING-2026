@@ -64,6 +64,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   font-family:var(--font-heading);font-weight:800;font-size:14px;
 }
 .how-icon{font-size:40px;margin:8px 0 14px;color:var(--green);}
+.how-icon.photo{width:130px;height:130px;margin:6px auto 16px;border-radius:50%;overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);}
+.how-icon.photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.how-card.has-photo .how-num{display:none;}
+.how-card.has-photo{padding-top:24px;}
 .how-title{font-family:var(--font-th);font-size:16px;font-weight:600;color:var(--dk);margin-bottom:8px;}
 .how-desc{font-size:13.5px;color:var(--text-light);font-weight:300;line-height:1.6;}
 
@@ -175,21 +180,21 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
   <p class="section-sub fade-up fd1">เศษลวดเย็บกระดาษที่ไม่ใช้แล้ว เปลี่ยนเป็นโอกาสให้ผู้พิการ</p>
 
   <div class="how-grid">
-    <div class="how-card fade-up fd1">
+    <div class="how-card has-photo fade-up fd1">
       <div class="how-num">1</div>
-      <div class="how-icon">📎</div>
+      <div class="how-icon photo"><img src="images/step3-1.png" alt="รวบรวมลูกแม็ก"></div>
       <div class="how-title">รวบรวมลูกแม็ก</div>
       <div class="how-desc">เก็บเศษลวดเย็บกระดาษ (ลูกแม็ก)<br>ที่ใช้แล้วจากที่ทำงานหรือที่บ้าน</div>
     </div>
-    <div class="how-card fade-up fd2">
+    <div class="how-card has-photo fade-up fd2">
       <div class="how-num">2</div>
-      <div class="how-icon">📦</div>
+      <div class="how-icon photo"><img src="images/step3-2.png" alt="นำส่งจุดรับบริจาค"></div>
       <div class="how-title">นำส่งจุดรับบริจาค</div>
       <div class="how-desc">นำลูกแม็กมาส่งที่จุดรวบรวม<br>ภายในระยะเวลาที่กำหนด</div>
     </div>
-    <div class="how-card fade-up fd3">
+    <div class="how-card has-photo fade-up fd3">
       <div class="how-num">3</div>
-      <div class="how-icon">🤝</div>
+      <div class="how-icon photo"><img src="images/step3-3.png" alt="ส่งมอบสู่สังคม"></div>
       <div class="how-title">ส่งมอบสู่สังคม</div>
       <div class="how-desc">COM7 รวบรวมและส่งมอบให้<br>สมาคมคนพิการทางการเคลื่อนไหวสากล</div>
     </div>
@@ -229,7 +234,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);over
 <section class="cta-section">
   <div class="cta-title">ร่วมเปลี่ยนสิ่งเล็ก ๆ ให้เป็นโอกาสที่ยิ่งใหญ่ ♻️</div>
   <div class="cta-sub">ลูกแม็กเพียงเล็กน้อยจากคุณ คือพลังสร้างสังคมที่เท่าเทียม</div>
-  <a href="#" class="cta-btn"><i class="fa-solid fa-recycle"></i> ร่วมบริจาคเลย <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="https://www.facebook.com/apdi.official/?locale=th_TH" target="_blank" rel="noopener" class="cta-btn"><i class="fa-brands fa-facebook"></i> ดูเพิ่มเติม <i class="fa-solid fa-arrow-right"></i></a>
   <div class="cta-note">♿ ร่วมกัน Upcycle for Inclusion ตลอดเดือน ก.ย. – พ.ย. 2569</div>
 </section>
 
