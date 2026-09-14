@@ -186,11 +186,7 @@ body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background
 .act-cta:hover{background:transparent;color:var(--dk);}
 
 /* ========== FOOTER ========== */
-.footer{
-  background:var(--dk);color:rgba(255,255,255,0.7);
-  padding:32px 48px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-}
+
 @media(max-width:900px){.footer{padding:24px 20px;flex-direction:column;text-align:center;}}
 .footer-left{display:flex;align-items:center;gap:24px;flex-wrap:wrap;font-size:13px;}
 .footer-left span{display:flex;align-items:center;gap:6px;}
@@ -263,6 +259,13 @@ body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background
 .pop-dots{display:flex;gap:8px;justify-content:center;margin-top:16px;}
 .pop-dots .d{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;}
 .pop-dots .d.active{background:#fff;width:26px;border-radius:5px;}
+.footer{background:var(--dk);color:rgba(255,255,255,0.7);padding:28px 48px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+@media(max-width:900px){.footer{padding:24px 20px;flex-direction:column;text-align:center;}}
+.footer-left{display:flex;align-items:center;gap:24px;flex-wrap:wrap;font-size:13px;}
+.footer-left span{display:flex;align-items:center;gap:6px;}
+.footer-left strong{color:#fff;font-weight:500;}
+.footer-right{font-size:12px;color:rgba(255,255,255,0.5);}
 </style>
 </head>
 <body>
@@ -403,7 +406,7 @@ body{font-family:var(--font-body);color:var(--text);overflow-x:hidden;background
     <strong>สอบถามข้อมูลเพิ่มเติม</strong>
     <span><i class="fa-solid fa-phone"></i> 02 017 7777 ต่อ 7224, 7213</span>
   </div>
-  <div class="footer-right">© 2026 COM7 Public Company Limited. All rights reserved.</div>
+  <div class="footer-right">เว็บนี้จัดทำขึ้นโดย ฝ่ายทรัพยากรบุคคล</div>
 </footer>
 
 <script>
